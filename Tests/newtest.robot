@@ -88,7 +88,6 @@ Add User
 Get All Users
     ${Web_Elems}  Get WebElements    //tbody//tr
     ${elems_len}    Get Length    ${Web_Elems}
-    Log To Console    ${elems_len}
     ${names_list}  Create List
     
     FOR  ${i}  IN RANGE  1  ${elems_len}+1
@@ -108,9 +107,7 @@ Display Users
 
     FOR    ${i}    IN RANGE    0    ${NAMES_LIST_LENGTH}
         IF  ${i} == 0
-            Log To Console   --------------------------------------
-            Log To Console    All Created Users Are Displayed 
-            Log To Console   --------------------------------------
+            Log To Console    ---------------- USERS ----------------\n
         END
 
         
@@ -134,7 +131,7 @@ Display Users
         Set Suite Variable    ${ORDERS_LIST}    ${orders_list}
         
         
-        Log To Console    ---------------- USER #${i+1} ----------------
+        Log To Console    ---------------- USER #${i+1} ----------------\n
         Log To Console    ${header} : ${NAMES_LIST}[${i}]
         Log To Console    Last Seen : ${last_seen}
         Log To Console    Orders : ${orders}
