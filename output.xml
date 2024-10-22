@@ -1,0 +1,1060 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1.1 (Python 3.12.3 on linux)" generated="2024-10-22T13:52:28.479498" rpa="false" schemaversion="5">
+<suite id="s1" name="Newtest" source="/home/citco/QA/Tests/newtest.robot">
+<kw name="Launch Browser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:28.837697" level="INFO">Opening browser 'chrome' to base url 'https://marmelab.com/react-admin-demo/#/login' through remote server at 'http://10.127.132.43:4444'.</msg>
+<arg>${url}</arg>
+<arg>chrome</arg>
+<arg>remote_url=${remote_url}</arg>
+<arg>options=add_argument("--start-maximized")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-10-22T13:52:28.837053" elapsed="5.714255"/>
+</kw>
+<status status="PASS" start="2024-10-22T13:52:28.835746" elapsed="5.715819"/>
+</kw>
+<test id="s1-t1" name="My First Test Case" line="19">
+<kw name="Login User">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//button</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T13:52:34.553864" elapsed="0.281060"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:34.835561" level="INFO">Typing text 'demo' into text field 'name:username'.</msg>
+<arg>name:username</arg>
+<arg>${user}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:34.835200" elapsed="0.202792"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:35.038720" level="INFO">Typing text 'demo' into text field 'name:password'.</msg>
+<arg>name:password</arg>
+<arg>${pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:35.038300" elapsed="0.395623"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:35.434663" level="INFO">Clicking button '//*[@id="root"]/form/div/div/div[4]/button'.</msg>
+<arg>//*[@id="root"]/form/div/div/div[4]/button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:35.434262" elapsed="0.549993"/>
+</kw>
+<arg>demo</arg>
+<arg>demo</arg>
+<status status="PASS" start="2024-10-22T13:52:34.553056" elapsed="1.431420"/>
+</kw>
+<kw name="Go To Link">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:35.990315" level="INFO">Clicking element '//a[text()="Customers"]'.</msg>
+<arg>//a[text()="${text}"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:35.989898" elapsed="0.491349"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>//tbody/tr[last()]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T13:52:36.481555" elapsed="1.027185"/>
+</kw>
+<arg>Customers</arg>
+<status status="PASS" start="2024-10-22T13:52:35.988349" elapsed="1.520579"/>
+</kw>
+<kw name="Display All Names">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.540027" level="INFO">${allTR} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="5317e49f9947834fe86bb1125e94e9bb", element="f.FAB23B736F9A0DD70756AA8D06A375D7.d.EC8746BE53B3B5E4EBA9DF47AD764EC2.e.66")&gt;, &lt;selenium.webdriv...</msg>
+<var>${allTR}</var>
+<arg>//tbody/tr</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.510778" elapsed="0.029325"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.540656" level="INFO">Length is 25.</msg>
+<msg time="2024-10-22T13:52:37.540803" level="INFO">${length} = 25</msg>
+<var>${length}</var>
+<arg>${allTR}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.540359" elapsed="0.000492"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n\n${length}\n\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.541061" elapsed="0.000336"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.541620" elapsed="0.000356"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.544746" level="INFO">${locator} = ((//tbody/tr)[1]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.543029" elapsed="0.001833"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.612440" level="INFO">${text} = Devin Mosciski</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.545385" elapsed="0.067124"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.613293" level="INFO">${text} = evin Mosciski</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.612799" elapsed="0.000548"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.613559" elapsed="0.000352"/>
+</kw>
+<var name="${i}">1</var>
+<status status="PASS" start="2024-10-22T13:52:37.542743" elapsed="0.071262"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.614811" level="INFO">${locator} = ((//tbody/tr)[2]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.614423" elapsed="0.000449"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.695581" level="INFO">${text} = Furman Rippin</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.615101" elapsed="0.080604"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.696455" level="INFO">${text} = urman Rippin</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.695974" elapsed="0.000536"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.696748" elapsed="0.000311"/>
+</kw>
+<var name="${i}">2</var>
+<status status="PASS" start="2024-10-22T13:52:37.614249" elapsed="0.082912"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.698018" level="INFO">${locator} = ((//tbody/tr)[3]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.697683" elapsed="0.000387"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.749982" level="INFO">${text} = J
+Jenifer Koelpin</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.698273" elapsed="0.051778"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.750798" level="INFO">${text} = Jenifer Koelpin</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.750318" elapsed="0.000536"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.751323" elapsed="0.000395"/>
+</kw>
+<var name="${i}">3</var>
+<status status="PASS" start="2024-10-22T13:52:37.697476" elapsed="0.054360"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.752622" level="INFO">${locator} = ((//tbody/tr)[4]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.752303" elapsed="0.000393"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.804596" level="INFO">${text} = Darryl Weimann</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.752901" elapsed="0.051786"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.805388" level="INFO">${text} = arryl Weimann</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.804947" elapsed="0.000495"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.805669" elapsed="0.000308"/>
+</kw>
+<var name="${i}">4</var>
+<status status="PASS" start="2024-10-22T13:52:37.752092" elapsed="0.053974"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.806856" level="INFO">${locator} = ((//tbody/tr)[5]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.806514" elapsed="0.000393"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:37.904974" level="INFO">${text} = S
+Sylvan Jerde</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.807194" elapsed="0.097858"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.906063" level="INFO">${text} = Sylvan Jerde</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.905343" elapsed="0.000785"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.906393" elapsed="0.001369"/>
+</kw>
+<var name="${i}">5</var>
+<status status="PASS" start="2024-10-22T13:52:37.806317" elapsed="0.101584"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:37.908844" level="INFO">${locator} = ((//tbody/tr)[6]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.908420" elapsed="0.000486"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.001616" level="INFO">${text} = D
+Destiney Rippin</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:37.909162" elapsed="0.092549"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.002420" level="INFO">${text} = Destiney Rippin</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.001969" elapsed="0.000506"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.002702" elapsed="0.000702"/>
+</kw>
+<var name="${i}">6</var>
+<status status="PASS" start="2024-10-22T13:52:37.908187" elapsed="0.095331"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.004312" level="INFO">${locator} = ((//tbody/tr)[7]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.003992" elapsed="0.000372"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.051644" level="INFO">${text} = J
+Jacques Lemke</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.004575" elapsed="0.047141"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.052417" level="INFO">${text} = Jacques Lemke</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.051969" elapsed="0.000502"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.052698" elapsed="0.000299"/>
+</kw>
+<var name="${i}">7</var>
+<status status="PASS" start="2024-10-22T13:52:38.003796" elapsed="0.049297"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.053904" level="INFO">${locator} = ((//tbody/tr)[8]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.053551" elapsed="0.000405"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.096314" level="INFO">${text} = T
+Talon O'Conner</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.054161" elapsed="0.042223"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.098326" level="INFO">${text} = Talon O'Conner</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.097702" elapsed="0.000695"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.098749" elapsed="0.000506"/>
+</kw>
+<var name="${i}">8</var>
+<status status="PASS" start="2024-10-22T13:52:38.053348" elapsed="0.046033"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.100661" level="INFO">${locator} = ((//tbody/tr)[9]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.100169" elapsed="0.000586"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.149443" level="INFO">${text} = Deion Reichert</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.101102" elapsed="0.048410"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.150252" level="INFO">${text} = eion Reichert</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.149808" elapsed="0.000497"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.150857" elapsed="0.000376"/>
+</kw>
+<var name="${i}">9</var>
+<status status="PASS" start="2024-10-22T13:52:38.099907" elapsed="0.051437"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.152126" level="INFO">${locator} = ((//tbody/tr)[10]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.151802" elapsed="0.000375"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.202593" level="INFO">${text} = C
+Camille Wolf</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.152393" elapsed="0.050292"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.203383" level="INFO">${text} = Camille Wolf</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.202944" elapsed="0.000492"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.203653" elapsed="0.000578"/>
+</kw>
+<var name="${i}">10</var>
+<status status="PASS" start="2024-10-22T13:52:38.151599" elapsed="0.052745"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.205095" level="INFO">${locator} = ((//tbody/tr)[11]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.204780" elapsed="0.000365"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.251488" level="INFO">${text} = A
+April Ward</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.205344" elapsed="0.046212"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.252298" level="INFO">${text} = April Ward</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.251835" elapsed="0.000517"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.252564" elapsed="0.000715"/>
+</kw>
+<var name="${i}">11</var>
+<status status="PASS" start="2024-10-22T13:52:38.204587" elapsed="0.048804"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.254199" level="INFO">${locator} = ((//tbody/tr)[12]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.253879" elapsed="0.000372"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.317266" level="INFO">${text} = H
+Hannah Pfeffer</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.254450" elapsed="0.062887"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.318264" level="INFO">${text} = Hannah Pfeffer</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.317609" elapsed="0.000715"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.318556" elapsed="0.000700"/>
+</kw>
+<var name="${i}">12</var>
+<status status="PASS" start="2024-10-22T13:52:38.253669" elapsed="0.065694"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.320582" level="INFO">${locator} = ((//tbody/tr)[13]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.319850" elapsed="0.000820"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.380716" level="INFO">${text} = I
+Isac Mann</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.320911" elapsed="0.059881"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.381548" level="INFO">${text} = Isac Mann</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.381064" elapsed="0.000543"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.382863" elapsed="0.000409"/>
+</kw>
+<var name="${i}">13</var>
+<status status="PASS" start="2024-10-22T13:52:38.319663" elapsed="0.063728"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.384280" level="INFO">${locator} = ((//tbody/tr)[14]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.383925" elapsed="0.000412"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.451705" level="INFO">${text} = K
+Kurtis Schaefer</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.384573" elapsed="0.067207"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.452558" level="INFO">${text} = Kurtis Schaefer</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.452047" elapsed="0.000569"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.452895" elapsed="0.000347"/>
+</kw>
+<var name="${i}">14</var>
+<status status="PASS" start="2024-10-22T13:52:38.383688" elapsed="0.069666"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.454208" level="INFO">${locator} = ((//tbody/tr)[15]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.453872" elapsed="0.000388"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.524031" level="INFO">${text} = T
+Telly Kulas</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.454521" elapsed="0.069580"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.524854" level="INFO">${text} = Telly Kulas</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.524363" elapsed="0.000548"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.525152" elapsed="0.000391"/>
+</kw>
+<var name="${i}">15</var>
+<status status="PASS" start="2024-10-22T13:52:38.453620" elapsed="0.072133"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.526536" level="INFO">${locator} = ((//tbody/tr)[16]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.526199" elapsed="0.000389"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.584976" level="INFO">${text} = Rosalinda Veum</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.527621" elapsed="0.057423"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.586746" level="INFO">${text} = osalinda Veum</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.586236" elapsed="0.000706"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.587236" elapsed="0.000334"/>
+</kw>
+<var name="${i}">16</var>
+<status status="PASS" start="2024-10-22T13:52:38.526016" elapsed="0.061728"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.588559" level="INFO">${locator} = ((//tbody/tr)[17]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.588237" elapsed="0.000373"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.634390" level="INFO">${text} = C
+Chesley Halvorson</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.588852" elapsed="0.045605"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.635192" level="INFO">${text} = Chesley Halvorson</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.634745" elapsed="0.000501"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.635452" elapsed="0.000346"/>
+</kw>
+<var name="${i}">17</var>
+<status status="PASS" start="2024-10-22T13:52:38.588052" elapsed="0.047844"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.636667" level="INFO">${locator} = ((//tbody/tr)[18]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.636326" elapsed="0.000396"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.684248" level="INFO">${text} = A
+Allison West</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.636952" elapsed="0.047365"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.685022" level="INFO">${text} = Allison West</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.684565" elapsed="0.000512"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.685278" elapsed="0.000319"/>
+</kw>
+<var name="${i}">18</var>
+<status status="PASS" start="2024-10-22T13:52:38.636149" elapsed="0.049555"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.686461" level="INFO">${locator} = ((//tbody/tr)[19]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.686145" elapsed="0.000367"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.731141" level="INFO">${text} = K
+Kayley Upton</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.686747" elapsed="0.044472"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.732176" level="INFO">${text} = Kayley Upton</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.731508" elapsed="0.000781"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.732898" elapsed="0.000812"/>
+</kw>
+<var name="${i}">19</var>
+<status status="PASS" start="2024-10-22T13:52:38.685963" elapsed="0.047889"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.734662" level="INFO">${locator} = ((//tbody/tr)[20]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.734308" elapsed="0.000409"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.786272" level="INFO">${text} = M
+Myah McKenzie</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.735050" elapsed="0.051290"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.787041" level="INFO">${text} = Myah McKenzie</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.786589" elapsed="0.000506"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.787306" elapsed="0.000305"/>
+</kw>
+<var name="${i}">20</var>
+<status status="PASS" start="2024-10-22T13:52:38.734127" elapsed="0.053615"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.788486" level="INFO">${locator} = ((//tbody/tr)[21]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.788173" elapsed="0.000667"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.832423" level="INFO">${text} = L
+Lilly Bayer</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.789072" elapsed="0.043430"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.833381" level="INFO">${text} = Lilly Bayer</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.832826" elapsed="0.000623"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.833776" elapsed="0.000953"/>
+</kw>
+<var name="${i}">21</var>
+<status status="PASS" start="2024-10-22T13:52:38.787996" elapsed="0.047373"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.836225" level="INFO">${locator} = ((//tbody/tr)[22]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.835898" elapsed="0.000379"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.886604" level="INFO">${text} = P
+Patrick Moore</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.836481" elapsed="0.050218"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.887396" level="INFO">${text} = Patrick Moore</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.886952" elapsed="0.000498"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.887666" elapsed="0.000293"/>
+</kw>
+<var name="${i}">22</var>
+<status status="PASS" start="2024-10-22T13:52:38.835706" elapsed="0.052349"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.888824" level="INFO">${locator} = ((//tbody/tr)[23]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.888486" elapsed="0.000390"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.935919" level="INFO">${text} = L
+Laura Bergnaum</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.889080" elapsed="0.046911"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.936700" level="INFO">${text} = Laura Bergnaum</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.936245" elapsed="0.000510"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.936956" elapsed="0.000299"/>
+</kw>
+<var name="${i}">23</var>
+<status status="PASS" start="2024-10-22T13:52:38.888309" elapsed="0.049037"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.938122" level="INFO">${locator} = ((//tbody/tr)[24]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.937807" elapsed="0.000365"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:38.986838" level="INFO">${text} = L
+Lewis Ritchie</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.938377" elapsed="0.048528"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.987596" level="INFO">${text} = Lewis Ritchie</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.987169" elapsed="0.000501"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.987876" elapsed="0.000296"/>
+</kw>
+<var name="${i}">24</var>
+<status status="PASS" start="2024-10-22T13:52:38.937596" elapsed="0.050670"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:38.989538" level="INFO">${locator} = ((//tbody/tr)[25]//td)[2]</msg>
+<var>${locator}</var>
+<arg>((//tbody/tr)[${i}]//td)[2]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.989213" elapsed="0.000376"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:39.040418" level="INFO">${text} = Chris Ondricka</msg>
+<var>${text}</var>
+<arg>${locator}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:38.989822" elapsed="0.050667"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:39.041228" level="INFO">${text} = hris Ondricka</msg>
+<var>${text}</var>
+<arg>r"""${text}""".replace("\\n","")[1:]</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:39.040772" elapsed="0.000512"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${text}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:39.041492" elapsed="0.000410"/>
+</kw>
+<var name="${i}">25</var>
+<status status="PASS" start="2024-10-22T13:52:38.988515" elapsed="0.053501"/>
+</iter>
+<var>${i}</var>
+<value>1</value>
+<value>${length}+1</value>
+<status status="PASS" start="2024-10-22T13:52:37.542151" elapsed="1.499980"/>
+</for>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n\n</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:39.042425" elapsed="0.000693"/>
+</kw>
+<status status="PASS" start="2024-10-22T13:52:37.509783" elapsed="1.533535"/>
+</kw>
+<kw name="Fetch Data">
+<kw name="Get Api Users" owner="Users">
+<msg time="2024-10-22T13:52:51.553243" level="INFO">['sangh']
+['thirdhand']
+['tendrils']
+['crosscut']
+['polar']
+['sideboards']
+['corotate']
+['antipsychotic']
+['autonyms']
+['stentors']</msg>
+<msg time="2024-10-22T13:52:51.553443" level="INFO">/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'jsonplaceholder.typicode.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(
+/home/citco/QA/QAvenv/lib/python3.12/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'random-word-api.herokuapp.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-10-22T13:52:51.554098" level="INFO">${users} = [{'id': 1, 'name': 'Leanne Graham', 'username': 'Bret', 'email': 'Sincere@april.biz', 'address': {'street': 'Kulas Light', 'suite': 'Apt. 556', 'city': 'Gwenborough', 'zipcode': '92998-3874', 'geo': {...</msg>
+<var>${users}</var>
+<status status="PASS" start="2024-10-22T13:52:39.044428" elapsed="12.509764"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2024-10-22T13:52:51.555507" level="INFO">${USERS} = [{'id': 1, 'name': 'Leanne Graham', 'username': 'Bret', 'email': 'Sincere@april.biz', 'address': {'street': 'Kulas Light', 'suite': 'Apt. 556', 'city': 'Gwenborough', 'zipcode': '92998-3874', 'geo': {...</msg>
+<arg>${USERS}</arg>
+<arg>${users}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.554614" elapsed="0.001032"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${users}[0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.555926" elapsed="0.000432"/>
+</kw>
+<status status="PASS" start="2024-10-22T13:52:39.043916" elapsed="12.512646"/>
+</kw>
+<kw name="Open Add Identity Modal">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:51.558160" level="INFO">Clicking element '//a[@aria-label="Create"]'.</msg>
+<arg>//a[@aria-label="Create"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.557813" elapsed="0.329663"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${identity_txt_firstName}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.889056" elapsed="0.045889"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:51.936305" level="INFO">${firstName} = Leanne</msg>
+<var>${firstName}</var>
+<arg>" ".join("${user['name']}".split()[:-1]).strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.935220" elapsed="0.001146"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-10-22T13:52:51.937542" level="INFO">${lastName} = Graham</msg>
+<var>${lastName}</var>
+<arg>" ".join("${user['name']}".split()[-1:]).strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.936589" elapsed="0.001010"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:51.938233" level="INFO">Typing text 'Leanne' into text field '//input[@name="first_name"]'.</msg>
+<arg>${identity_txt_firstName}</arg>
+<arg>${firstName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:51.937870" elapsed="0.234565"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:52.173204" level="INFO">Typing text 'Graham' into text field '//input[@name="last_name"]'.</msg>
+<arg>${identity_txt_lastName}</arg>
+<arg>${lastName}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:52.172762" elapsed="0.286632"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:52.463306" level="INFO">Typing text 'Sincere@april.biz' into text field '//input[@name="email"]'.</msg>
+<arg>${identity_txt_email}</arg>
+<arg>${user['email']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:52.459746" elapsed="0.377770"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>${identity_date_birthday}</arg>
+<arg>${user['birthday']}</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:52.837824" elapsed="0.195398"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['birthday']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:53.033494" elapsed="0.000960"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:53.036105" level="INFO">Typing text 'Kulas Light' into text field '//textarea[@name="address"]'.</msg>
+<arg>${identity_txt_address}</arg>
+<arg>${user['address']['street']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:53.035142" elapsed="0.321246"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:53.358610" level="INFO">Typing text 'Gwenborough' into text field '//input[@name="city"]'.</msg>
+<arg>${identity_txt_city}</arg>
+<arg>${user['address']['city']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:53.356996" elapsed="0.284315"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:53.644976" level="INFO">Typing text 'Kulas Light' into text field '//input[@name="stateAbbr"]'.</msg>
+<arg>${identity_txt_stateAbbr}</arg>
+<arg>${user['address']['street']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:53.642158" elapsed="0.319227"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:53.964606" level="INFO">Typing text '92998-3874' into text field '//input[@name="zipcode"]'.</msg>
+<arg>${identity_txt_zipcode}</arg>
+<arg>${user['address']['zipcode']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:53.962121" elapsed="0.266564"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:54.232624" level="INFO">Typing text '1-770-736-8031 x56442' into text field '//input[@name="password"]'.</msg>
+<arg>${identity_txt_password}</arg>
+<arg>${user['phone']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:54.229015" elapsed="0.410945"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-10-22T13:52:54.641545" level="INFO">Typing text '1-770-736-8031 x56442' into text field '//input[@name="confirm_password"]'.</msg>
+<arg>${identity_txt_confirm_password}</arg>
+<arg>${user['phone']}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-10-22T13:52:54.640237" elapsed="0.331617"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2024-10-22T13:52:57.973896" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2024-10-22T13:52:54.972231" elapsed="3.001861"/>
+</kw>
+<arg>${USERS}[0]</arg>
+<status status="PASS" start="2024-10-22T13:52:51.557101" elapsed="6.417175"/>
+</kw>
+<kw name="Add User">
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${user['name']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-10-22T13:52:57.982376" elapsed="0.001933"/>
+</kw>
+<arg>${USERS}[0]</arg>
+<status status="PASS" start="2024-10-22T13:52:57.978317" elapsed="0.008629"/>
+</kw>
+<status status="PASS" start="2024-10-22T13:52:34.551868" elapsed="23.435448"/>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-10-22T13:52:57.988398" elapsed="0.530674"/>
+</kw>
+<status status="PASS" start="2024-10-22T13:52:28.481123" elapsed="30.038102"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Newtest">Newtest</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
